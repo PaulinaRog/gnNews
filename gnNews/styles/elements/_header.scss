@@ -1,0 +1,44 @@
+.header {
+  background-color: $gray-300;
+  box-shadow: $shadow;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+
+  &-logo {
+    @include sml {
+      width: 12%;
+    }
+    width: 7%;
+    padding: 1em;
+    cursor: pointer;
+  }
+
+  &-view {
+    @include inputs-select(150px);
+
+    &-box {
+      @include sml {
+        right: unset;
+        left: 50%;
+      }
+      position: absolute;
+      top: 50%;
+      right: 0%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &-popup-button {
+    @include button-notresp(50px);
+    float: right;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    right: 2%;
+  }
+}

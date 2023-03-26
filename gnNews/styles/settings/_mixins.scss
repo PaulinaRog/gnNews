@@ -1,0 +1,98 @@
+@mixin sml {
+  @media (max-width: $screen-width) {
+    @content;
+  }
+}
+
+@mixin dsk {
+  @media (min-width: $screen-width) {
+    @content;
+  }
+}
+
+@mixin mob {
+  @media (max-width: 560px) {
+    @content;
+  }
+}
+
+@mixin inputs-select($width) {
+  @include sml {
+    width: calc($width - 30%);
+    border: none;
+    padding: 0.3em;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  width: $width;
+  border: none;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+@mixin button($width) {
+  @include sml {
+    width: calc($width - 20%);
+    font-size: 14px;
+  }
+  @include mob {
+    width: calc($width - 50%);
+    font-size: 14px;
+  }
+  width: $width;
+  border: none;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: $gray-500;
+  box-shadow: $shadow;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+  }
+  &:active {
+    box-shadow: $shadow-active;
+  }
+}
+
+@mixin button-notresp($width) {
+  width: $width;
+  border: none;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: $gray-500;
+  box-shadow: $shadow;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+  }
+  &:active {
+    box-shadow: $shadow-active;
+  }
+}
+
+@mixin popup {
+  @include sml {
+    height: 60%;
+    width: 70%;
+  }
+  z-index: 10;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 60vh;
+  background-color: $gray-300;
+  border-radius: 5px;
+  box-shadow: $shadow-hover;
+  padding: 1em;
+  padding-bottom: 5em;
+  overflow-y: scroll;
+
+  h4 {
+    margin-top: 1em;
+  }
+}

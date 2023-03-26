@@ -1,0 +1,95 @@
+body {
+  @include sml {
+    background-color: $gray-100;
+    font-size: 16px;
+  }
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+}
+
+button,
+label,
+span,
+input,
+select,
+option {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding-bottom: 1em;
+}
+
+label {
+  padding: 1em;
+}
+
+.popup {
+  @include popup;
+}
+
+h1 {
+  font-size: 170%;
+  font-weight: 600;
+}
+h2 {
+  font-size: 150%;
+  font-weight: 600;
+}
+h3 {
+  font-size: 130%;
+  font-weight: 500;
+}
+h4 {
+  font-size: 120%;
+  font-weight: 500;
+}
+h5 {
+  font-size: 110%;
+  font-weight: 500;
+}
+
+.popup-close-button {
+  @include mob {
+    float: unset;
+    transform: translateX(-50%);
+    margin-left: 50%;
+  }
+  @include button(200px);
+  margin-top: 2em;
+  float: right;
+  margin-right: 2em;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: $gray-200;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-100;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: $gray-300;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-600;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $gray-900;
+}
+
+p {
+  margin-bottom: 0.5em;
+}

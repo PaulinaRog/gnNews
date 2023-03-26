@@ -1,0 +1,36 @@
+.side-menu {
+  @include sml {
+    left: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  width: 22vw;
+  height: 70vh;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1em;
+  position: fixed;
+  .side-menu-box {
+    padding: 0.5em;
+  }
+
+  .side-menu-flag {
+    width: 15%;
+    padding-right: 1em;
+  }
+
+  .side-menu-button {
+    @include sml {
+      @include button(150px);
+    }
+    @include dsk {
+      @include button(220px);
+    }
+    @include mob {
+      @include button(100px);
+    }
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

@@ -1,0 +1,58 @@
+export const countries = [
+  {
+    id: 1,
+    country: "Argentyna",
+    api: "https://newsapi.org/v2/top-headlines?country=ar&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6",
+    flag: "https://newsapi.org/images/flags/ar.svg",
+    short: "AR",
+  },
+  {
+    id: 2,
+    country: "Belgia",
+    api: "https://newsapi.org/v2/top-headlines?country=be&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6",
+    flag: "https://newsapi.org/images/flags/be.svg",
+    short: "BE",
+  },
+  {
+    id: 3,
+    country: "Czechy",
+    api: "https://newsapi.org/v2/top-headlines?country=cz&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6",
+    flag: "https://newsapi.org/images/flags/cz.svg",
+    short: "CZ",
+  },
+  {
+    id: 4,
+    country: "Niemcy",
+    api: "https://newsapi.org/v2/top-headlines?country=de&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6",
+    flag: "https://newsapi.org/images/flags/de.svg",
+    short: "GE",
+  },
+  {
+    id: 5,
+    country: "Polska",
+    api: "https://newsapi.org/v2/top-headlines?country=pl&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6",
+    flag: "https://newsapi.org/images/flags/pl.svg",
+    short: "PL",
+  },
+  {
+    id: 6,
+    country: "Portugalia",
+    api: "https://newsapi.org/v2/top-headlines?country=pt&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6",
+    flag: "https://newsapi.org/images/flags/pt.svg",
+    short: "PT",
+  },
+  {
+    id: 7,
+    country: "Słowacja",
+    api: "https://newsapi.org/v2/top-headlines?country=sk&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6",
+    flag: "https://newsapi.org/images/flags/sk.svg",
+    short: "SL",
+  },
+  {
+    id: 8,
+    country: "Stany Zjednoczone",
+    api: "https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6",
+    flag: "https://newsapi.org/images/flags/us.svg",
+    short: "USA",
+  },
+];
