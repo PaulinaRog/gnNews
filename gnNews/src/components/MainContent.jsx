@@ -6,11 +6,13 @@ export default function MainContent({ setArticlesCount }) {
   const [data, setData] = useState(null);
   const { id } = useParams();
 
+  const newsKey = import.meta.env.VITE_NEWS_KEY;
+
   const getNews = async () => {
     const response = await fetch(
       id
-        ? `https://newsapi.org/v2/top-headlines?country=${id}&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6`
-        : "https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=763da7d371964b079a9d728a1032baf6"
+        ? `https://newsapi.org/v2/top-headlines?country=${id}&pageSize=50&apiKey=${newsKey}`
+        : `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=${newsKey}`
     );
     if (!response.ok) {
       throw new Error("Data could not be fetched!");
