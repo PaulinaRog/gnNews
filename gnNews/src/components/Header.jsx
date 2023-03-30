@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import logo from "../assets/GNnews.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -8,17 +8,10 @@ import i18next from "i18next";
 
 export default function Header() {
   const [pop, setPop] = useState({ display: "none" });
-  const [closePop, setClosePop] = useState(false);
   const [tiles, setTiles] = useState(false);
-  const popupRef = useRef();
-  const buttonRef = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-  }, [pop]);
 
   const handleDisplayTypeChange = (newDisplayType) => {
     dispatch(setDisplayType(newDisplayType));
@@ -35,22 +28,10 @@ export default function Header() {
 
   const handleShowPopup = () => {
     setPop({ display: "block" });
-    setClosePop(true);
   };
 
   const handleClosePopup = () => {
     setPop({ display: "none" });
-    setClosePop(false);
-  };
-
-  const handleClickOutside = (e) => {
-    if (
-      !popupRef.current.contains(e.target) &&
-      closePop &&
-      !buttonRef.current.contains(e.target)
-    ) {
-      handleClosePopup();
-    }
   };
 
   const handleChangeViewList = () => {
@@ -113,12 +94,11 @@ export default function Header() {
           className="header-popup-button"
           title="Click me!"
           onClick={handleShowPopup}
-          ref={buttonRef}
         >
           <i className="fa-regular fa-face-surprise"></i>
         </button>
       </div>
-      <div style={pop} className="popup" ref={popupRef}>
+      <div style={pop} className="popup">
         <h1>Dzień dobry, gnStudio!</h1>
         <p>Gdyby wszystkie zadania rekrutacyjne były tak ekscytujące!.. :)</p>
         <p>
