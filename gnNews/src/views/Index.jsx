@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MainContent from "../components/MainContent";
@@ -6,7 +6,6 @@ import SideMenu from "../components/SideMenu";
 import i18next from "i18next";
 import Backend from "i18next-http-backend";
 import { I18nextProvider } from "react-i18next";
-import { Suspense } from "react";
 
 export default function Index() {
   const [articlesCount, setArticlesCount] = useState(null);
