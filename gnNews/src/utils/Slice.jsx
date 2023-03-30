@@ -8,7 +8,7 @@ const initialState = {
       width: "40%",
       display: "flex",
       flexDirection: "column",
-      marginRight: "5%",
+      marginRight: "2%",
     },
   },
 };

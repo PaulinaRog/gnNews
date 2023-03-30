@@ -16,25 +16,26 @@
   }
 
   &-view {
-    @include inputs-select(150px);
+    @include inputs-select(100px);
 
     &-box {
-      @include sml {
-        right: unset;
-        left: 50%;
-      }
       position: absolute;
       top: 50%;
-      right: 0%;
+      right: 7%;
       transform: translate(-50%, -50%);
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
+    &-language {
+      @include button-notresp(40px);
+      margin-left: 20px;
+    }
   }
 
   &-popup-button {
-    @include button-notresp(50px);
+    @include button-notresp(40px);
     float: right;
     position: absolute;
     transform: translate(-50%, -50%);

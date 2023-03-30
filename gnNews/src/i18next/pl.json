@@ -1,0 +1,17 @@
+{
+  "Close": "Zamknij",
+  "Read": "Czytaj",
+  "numberOfArticles": "Wyświetlanych artykułów",
+  "readFull": "Przeczytaj cały artykuł tutaj",
+  "contentError": "Niestety nie udało się pobrać treści. Żeby przeczytać artykuł, kliknij tutaj",
+  "ctr": {
+    "Argentina": "Argentyna",
+    "Belgium": "Belgia",
+    "CzechRepublic": "Czechy",
+    "Germany": "Niemcy",
+    "Poland": "Polska",
+    "Portugal": "Portugalia",
+    "Slovakia": "Słowacja",
+    "UnitedStates": "Stany Zjednoczone"
+  }
+}

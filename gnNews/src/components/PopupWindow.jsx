@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function PopupWindow({
   photo,
@@ -6,7 +7,6 @@ export default function PopupWindow({
   title,
   url,
   publishedAt,
-  description,
   content,
   popup,
   setPopup,
@@ -15,6 +15,8 @@ export default function PopupWindow({
   const handleClose = () => {
     setPopup({ display: "none" });
   };
+
+  const { t } = useTranslation();
 
   return (
     <div className="popup" style={popup}>
@@ -31,23 +33,20 @@ export default function PopupWindow({
           <>
             <p>{content.substring(0, 200)}</p>
             <div className="articles-link-box">
-              <p>Przeczytaj cały artykuł tutaj:</p>
-              <a href={`${url}`}>Czytaj</a>
+              <p>{t("readFull")}:</p>
+              <a href={`${url}`}>{t("Read")}</a>
             </div>
           </>
         ) : (
           <>
             <div className="articles-link-box">
-              <p>
-                Niestety nie udało się pobrać treści. Żeby przeczytać artykuł,
-                kliknij:{" "}
-              </p>
-              <a href={`${url}`}>Czytaj</a>{" "}
+              <p>{t("contentError")}: </p>
+              <a href={`${url}`}>{t("Read")}</a>{" "}
             </div>
           </>
         )}
         <button onClick={handleClose} className="popup-close-button">
-          Zamknij
+          {t("Close")}
         </button>
       </div>
     </div>

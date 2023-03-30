@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PopupWindow from "./PopupWindow";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 export default function Article({ articles }) {
   const [popup, setPopup] = useState({ display: "none" });
@@ -9,9 +10,10 @@ export default function Article({ articles }) {
 
   const handleShow = (e) => {
     setPopup({ display: "block" });
-    console.log(e.target.id);
     setId(e.target.id);
   };
+
+  const { t } = useTranslation();
 
   return (
     <>
@@ -23,25 +25,31 @@ export default function Article({ articles }) {
               key={article.title}
               style={styles[displayType]}
             >
-              {article.urlToImage ? (
+              {article.urlToImage && displayType === "tiles" ? (
                 <img src={article.urlToImage} className="articles-photo" />
               ) : null}
               <div className="articles-content">
                 <h4>{article.title}</h4>
                 <div className="articles-author-and-time-box">
-                  <p>{article.author ? article.author : article.source.name}</p>
+                  <p>
+                    {article.source.id
+                      ? article.source.id
+                      : article.source.name}
+                  </p>
                   <p>
                     {article.publishedAt.substring(0, 10)}{" "}
                     {article.publishedAt.substring(11, 16)}
                   </p>
                 </div>
-                {article.description ? <p>{article.description}</p> : null}
+                {article.description && displayType === "tiles" ? (
+                  <p>{article.description}</p>
+                ) : null}
                 <button
                   id={idx}
                   onClick={handleShow}
                   className="popup-close-button"
                 >
-                  Czytaj
+                  {t("Read")}
                 </button>
               </div>
             </div>

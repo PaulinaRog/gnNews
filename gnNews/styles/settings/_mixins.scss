@@ -11,7 +11,7 @@
 }
 
 @mixin mob {
-  @media (max-width: 560px) {
+  @media (max-width: 700px) {
     @content;
   }
 }
@@ -32,13 +32,9 @@
 }
 
 @mixin button($width) {
-  @include sml {
-    width: calc($width - 20%);
-    font-size: 14px;
-  }
   @include mob {
-    width: calc($width - 50%);
-    font-size: 14px;
+    width: calc($width - 20%);
+    font-size: 12px;
   }
   width: $width;
   border: none;
@@ -50,6 +46,9 @@
 
   &:hover {
     box-shadow: $shadow-hover;
+  }
+  &:focus {
+    background-color: $gray-400;
   }
   &:active {
     box-shadow: $shadow-active;
@@ -57,6 +56,9 @@
 }
 
 @mixin button-notresp($width) {
+  @include mob {
+    font-size: 12px;
+  }
   width: $width;
   border: none;
   padding: 0.5em;
@@ -67,6 +69,9 @@
 
   &:hover {
     box-shadow: $shadow-hover;
+  }
+  &:focus {
+    background-color: $gray-400;
   }
   &:active {
     box-shadow: $shadow-active;
@@ -80,7 +85,7 @@
   }
   z-index: 10;
   position: fixed;
-  top: 55%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50vw;

@@ -1,15 +1,20 @@
 .side-menu {
-  @include sml {
+  @include mob {
     left: 0.5em;
     top: 50%;
     transform: translateY(-50%);
+    background-color: $gray-400;
+    width: 26%;
+    border-radius: 5px;
+    z-index: 3;
   }
   width: 22vw;
-  height: 70vh;
   top: 50%;
   transform: translateY(-50%);
   left: 1em;
   position: fixed;
+  height: fit-content;
+  z-index: 3;
   .side-menu-box {
     padding: 0.5em;
   }
@@ -21,16 +26,33 @@
 
   .side-menu-button {
     @include sml {
-      @include button(150px);
+      @include button(120px);
     }
     @include dsk {
       @include button(220px);
     }
     @include mob {
-      @include button(100px);
+      @include button(80px);
     }
     display: flex;
     justify-content: flex-start;
     align-items: center;
+  }
+
+  &-show {
+    position: fixed;
+    top: 50%;
+    left: 0.5em;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    z-index: 3;
+  }
+  &-hide {
+    position: fixed;
+    top: 50%;
+    left: 25%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    z-index: 4;
   }
 }

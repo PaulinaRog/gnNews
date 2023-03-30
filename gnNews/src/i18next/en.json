@@ -1,0 +1,17 @@
+{
+  "Close": "Close",
+  "Read": "Read",
+  "numberOfArticles": "Number of articles",
+  "readFull": "Read full article here",
+  "contentError": "We couldn't download the content. To read the article, click here",
+  "ctr": {
+    "Argentina": "Argentina",
+    "Belgium": "Belgium",
+    "CzechRepublic": "Czech Republic",
+    "Germany": "Germany",
+    "Poland": "Poland",
+    "Portugal": "Portugal",
+    "Slovakia": "Slovakia",
+    "UnitedStates": "United States"
+  }
+}

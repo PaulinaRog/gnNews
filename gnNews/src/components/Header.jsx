@@ -3,25 +3,31 @@ import logo from "../assets/GNnews.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDisplayType } from "../utils/Slice";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 export default function Header() {
   const [pop, setPop] = useState({ display: "none" });
   const [closePop, setClosePop] = useState(false);
-
+  const [tiles, setTiles] = useState(false);
   const popupRef = useRef();
   const buttonRef = useRef();
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+  }, [pop]);
 
   const handleDisplayTypeChange = (newDisplayType) => {
     dispatch(setDisplayType(newDisplayType));
   };
 
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-  }, [pop]);
+  const changeLanguage = (lng) => {
+    i18next.changeLanguage(lng);
+    localStorage.setItem("language", lng);
+  };
 
   const handleClick = () => {
     navigate("/");
@@ -47,22 +53,63 @@ export default function Header() {
     }
   };
 
-  const handleChange = (e) => {
-    handleDisplayTypeChange(e.target.value);
+  const handleChangeViewList = () => {
+    setTiles(!tiles);
+    handleDisplayTypeChange("list");
+  };
+
+  const handleChangeViewTiles = () => {
+    setTiles(!tiles);
+    handleDisplayTypeChange("tiles");
   };
 
   return (
     <>
       <div className="header">
-        <img src={logo} className="header-logo" onClick={handleClick} />
+        <img
+          data-cy="logo"
+          src={logo}
+          alt="GNnews"
+          className="header-logo"
+          onClick={handleClick}
+        />
         <div className="header-view-box">
-          <label>Widok:</label>
-          <select className="header-view" onChange={handleChange}>
-            <option value="list">lista</option>
-            <option value="tiles">kafelki</option>
-          </select>
+          {tiles ? (
+            <button
+              data-cy="view-tiles"
+              className="header-view-language"
+              onClick={handleChangeViewList}
+            >
+              <i className="fa-solid fa-bars"></i>
+            </button>
+          ) : (
+            <button
+              data-cy="view-list"
+              className="header-view-language"
+              onClick={handleChangeViewTiles}
+            >
+              <i className="fa-solid fa-table-cells-large"></i>
+            </button>
+          )}
+          <div>
+            <button
+              data-cy="pl"
+              className="header-view-language"
+              onClick={() => changeLanguage("pl")}
+            >
+              PL
+            </button>
+            <button
+              data-cy="en"
+              className="header-view-language"
+              onClick={() => changeLanguage("en")}
+            >
+              EN
+            </button>
+          </div>
         </div>
         <button
+          data-cy="popup"
           className="header-popup-button"
           title="Click me!"
           onClick={handleShowPopup}
@@ -72,24 +119,28 @@ export default function Header() {
         </button>
       </div>
       <div style={pop} className="popup" ref={popupRef}>
-        <h1>popup title</h1>
-        <h3>popup short text</h3>
+        <h1>Dzień dobry, gnStudio!</h1>
+        <p>Gdyby wszystkie zadania rekrutacyjne były tak ekscytujące!.. :)</p>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum
-          voluptatum ipsum aperiam doloribus pariatur alias maiores rem ea
-          provident quibusdam totam beatae eum recusandae fugiat nisi commodi
-          odit quisquam tempora nemo odio voluptatibus ex fuga, est
-          reprehenderit! Porro libero consequatur corporis, dicta facere enim ab
-          quasi consectetur atque deserunt. Officia neque illum, at voluptas
-          atque optio natus numquam, deserunt perspiciatis quae sapiente dolores
-          sint debitis ratione est quam, reprehenderit labore! Ipsum beatae,
-          provident saepe voluptate eveniet tenetur culpa esse nihil obcaecati
-          dolorum laudantium alias cumque exercitationem consequuntur
-          laboriosam. Autem labore necessitatibus vero veniam modi. Ipsum
-          maiores ducimus ea dolorum provident!
+          Największą frajdę jak zawsze sprawiają mi rzeczy, z którymi mam
+          trudności - ten moment kiedy w końcu coś zacznie działać jest
+          najpiękniejszy. Dlatego muszę tu wymienić Redux oraz i18next. Przed
+          przystąpieniem do projektu z nimi nie pracowałam, wymagały trochę
+          kombinowania oraz researchu, a teraz żałuję, że nie poznałam ich
+          wcześniej (tyle możliwości!).
         </p>
-        <button onClick={handleClosePopup} className="popup-close-button">
-          Zamknij
+        <p>
+          Jedyną prawdziwą przeszkodą było API - planowałam po skończeniu
+          projektu wrzucić go na Netlify w całości, ale niestety szyko się
+          okazało, że News API nie pozwala na pobieranie artykułów w trybie
+          innym niż dev.
+        </p>
+        <button
+          data-cy="close"
+          onClick={handleClosePopup}
+          className="popup-close-button"
+        >
+          {t("Close")}
         </button>
       </div>
     </>
