@@ -58,7 +58,7 @@ npm i i18next-http-backend
 
 ## _Index page_
 
-#### Default view - language set to polish, articles showing in a form of a list.
+#### Default view - language set to Polish, articles showing in a form of a list.
 
 ![App Screenshot](https://raw.githubusercontent.com/PaulinaRog/gnNews/main/screenshots/main-list.png)
 
@@ -243,7 +243,7 @@ export default function Index() {
 
 ## Popup window
 
-#### Clicking on the read button opens up a popup window with content and link to the artile. Data is downloaded from News API. News from US are set as default.
+#### Clicking on the read button opens up a popup window with content and link to the article. Data is downloaded from News API. News from US are set as default.
 
 ![App Screenshot](https://raw.githubusercontent.com/PaulinaRog/gnNews/main/screenshots/main-article.png)
 

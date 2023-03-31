@@ -99,7 +99,7 @@ export default function Header() {
         </button>
       </div>
       <div style={pop} className="popup">
-        <h1>Dzień dobry, gnStudio!</h1>
+        <h1 style={{ marginTop: "1em" }}>Dzień dobry, gnStudio!</h1>
         <p>Gdyby wszystkie zadania rekrutacyjne były tak ekscytujące!.. :)</p>
         <p>
           Największą frajdę jak zawsze sprawiają mi rzeczy, z którymi mam
